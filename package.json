@@ -1,0 +1,22 @@
+{
+  "name": "psd-to-html-boilerplate",
+  "description": "Gulp + Ejs + Less + js + LiveReload + Bower",
+  "version": "1.2.2",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "Peter Klimenko",
+    "email": "megalance@gmail.com",
+    "url": "http://pancakedragon.ru"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^5.5.0",
+    "gulp-ejs": "^3.1.2",
+    "gulp-less": "^4.0.0",
+    "gulp-util": "^3.0.7",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {}
+}

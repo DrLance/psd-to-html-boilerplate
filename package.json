@@ -10,13 +10,13 @@
     "url": "http://pancakedragon.ru"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.3.1",
     "gulp": "^3.9.0",
-    "gulp-connect": "^5.5.0",
-    "gulp-ejs": "^3.1.2",
+    "gulp-connect": "^5.7.0",
+    "gulp-ejs": "^3.3.0",
     "gulp-less": "^4.0.0",
     "gulp-util": "^3.0.7",
-    "jquery": "^3.3.1"
+    "jquery": "^3.4.0"
   },
   "devDependencies": {}
 }

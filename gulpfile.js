@@ -1,44 +1,44 @@
-const gulp = require('gulp');
+const {src, dest, series, watch} = require('gulp');
 const gulpConnect = require('gulp-connect');
 const gulpLess = require('gulp-less');
-const src = 'src';
+const srcOutput = 'src';
 
 const out = 'public';
 
-gulp.task('connect', function() {
+async function connect() {
   return gulpConnect.server({
     root: 'public',
     port: 1337,
     livereload: true
   });
-});
+}
 
-gulp.task('less', function() {
-  return gulp
-    .src('./src/less/**/*.less')
+
+async function less() {
+  return src('./src/less/**/*.less')
     .pipe(gulpLess())
-    .pipe(gulp.dest('./public/css/'))
+    .pipe(dest('./public/css/'))
     .pipe(gulpConnect.reload());
-});
+};
 
-gulp.task('html', function() {
-  return gulp
-    .src([src + '/*.html'])
-    .pipe(gulp.dest('./public/'))
+
+async function html() {
+  return  src([srcOutput + '/*.html'])
+    .pipe(dest('./public/'))
     .pipe(gulpConnect.reload());
-});
+};
 
-gulp.task('js', function() {
-  return gulp
-    .src([src + '/js/*.js'])
-    .pipe(gulp.dest('./public/js/'))
+async function js() {
+  return     src([srcOutput + '/js/*.js'])
+    .pipe(dest('./public/js/'))
     .pipe(gulpConnect.reload());
-});
+};
 
-gulp.task('watch', function() {
-  gulp.watch([src + '/less/*.less', src + '/less/**/*.less'], ['less']);
-  gulp.watch([src + '/js/*.js', src + '/js/**/*.js'], ['js']);
-  return gulp.watch([src + '/*.html', src + '/html/**/*.html'], ['html']);
-});
 
-gulp.task('default', ['connect', 'less', 'watch', 'html', 'js']);
+async function watchFiles() {
+  watch([srcOutput + '/less/*.less', src + '/less/**/*.less'], less);
+  watch([srcOutput + '/js/*.js', src + '/js/**/*.js'], js);
+  return watch([srcOutput + '/*.html', srcOutput + '/html/**/*.html'], html);
+};
+
+exports.default = series(connect, less, html, js, watchFiles);

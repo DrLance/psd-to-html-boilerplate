@@ -1,6 +1,6 @@
 const { src, dest, series, watch } = require('gulp');
 const gulpConnect = require('gulp-connect');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('node-sass'));
 
 sass.compiler = require('node-sass');
 
